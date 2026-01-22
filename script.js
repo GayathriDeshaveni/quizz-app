@@ -82,12 +82,22 @@ nextBtn.addEventListener("click", () => {
 
 //RESULT 
 function showResult() {
-  questionEl.textContent = `Quiz Completed! Your Score: ${score}/${quizData.length}`;
+  const percentage = (score / quizData.length) * 100;
+
+  let resultClass = percentage >= 50 ? "success" : "fail";
+
+  questionEl.innerHTML = `
+    <div class="result ${resultClass}">
+      Quiz Completed! <br>
+      Your Score: ${score}/${quizData.length}
+    </div>
+  `;
 
   optionButtons.forEach(button => button.style.display = "none");
   nextBtn.style.display = "none";
   restartBtn.style.display = "block";
 }
+
 
 
 //TIMER
@@ -127,5 +137,6 @@ restartBtn.addEventListener("click", () => {
 
   loadQuestion();
 });
+
 
 
