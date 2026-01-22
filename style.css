@@ -60,6 +60,12 @@ ul {
 .result.fail {
   color: #f44336;
 }
+.progress {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
 
 
 
