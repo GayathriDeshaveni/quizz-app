@@ -25,6 +25,7 @@ const optionButtons = document.querySelectorAll(".option");
 const nextBtn = document.getElementById("nextBtn");
 const restartBtn = document.getElementById("restartBtn");
 const timerEl = document.getElementById("timer");
+const progressEl = document.getElementById("progress");
 
 let currentQuestion = 0;
 let score = 0;
@@ -37,6 +38,7 @@ function loadQuestion() {
   resetOptions();
   const current = quizData[currentQuestion];
   questionEl.textContent = current.question;
+  progressEl.textContent = `Question ${currentQuestion + 1} / ${quizData.length}`;
   optionButtons.forEach((btn, index) => {
     btn.style.display = "block";
     btn.textContent = current.options[index];
@@ -83,8 +85,8 @@ nextBtn.addEventListener("click", () => {
 //RESULT 
 function showResult() {
   const percentage = (score / quizData.length) * 100;
-
   let resultClass = percentage >= 50 ? "success" : "fail";
+  progressEl.style.display = "none";
 
   questionEl.innerHTML = `
     <div class="result ${resultClass}">
@@ -134,9 +136,10 @@ restartBtn.addEventListener("click", () => {
   optionButtons.forEach(button => button.style.display = "block");
   nextBtn.style.display = "block";
   restartBtn.style.display = "none";
-
+  progressEl.style.display = "block";
   loadQuestion();
 });
+
 
 
 
