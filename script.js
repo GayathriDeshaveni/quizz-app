@@ -52,10 +52,10 @@ optionButtons.forEach((button, index) => {
     clearInterval(timer);
     const correctIndex = quizData[currentQuestion].correct;
     if (index === correctIndex) {
-      button.style.backgroundColor = "green";
+      button.style.backgroundColor = "#4CAF50";
       score++;
     } else {
-      button.style.backgroundColor = "red";
+      button.style.backgroundColor = "#f44336";
       optionButtons[correctIndex].style.backgroundColor = "green";
     }
   });
@@ -127,4 +127,5 @@ restartBtn.addEventListener("click", () => {
 
   loadQuestion();
 });
+
 
