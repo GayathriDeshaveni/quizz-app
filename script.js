@@ -24,6 +24,7 @@ const questionEl = document.getElementById("question");
 const optionButtons = document.querySelectorAll(".option");
 const nextBtn = document.getElementById("nextBtn");
 const restartBtn = document.getElementById("restartBtn");
+const timerEl = document.getElementById("timer");
 
 let currentQuestion = 0;
 let score = 0;
@@ -93,16 +94,19 @@ function showResult() {
 function startTimer() {
   clearInterval(timer);
   timeLeft = 10;
-  document.title = `Time Left: ${timeLeft}s`;
+  timerEl.textContent = `Time Left: ${timeLeft}s`;
+
   timer = setInterval(() => {
     timeLeft--;
-    document.title = `Time Left: ${timeLeft}s`;
+    timerEl.textContent = `Time Left: ${timeLeft}s`;
+
     if (timeLeft <= 0) {
       clearInterval(timer);
       autoNext();
     }
   }, 1000);
 }
+
 
 // AUTO NEXT (TIMEOUT) 
 function autoNext() {
@@ -123,3 +127,4 @@ restartBtn.addEventListener("click", () => {
 
   loadQuestion();
 });
+
