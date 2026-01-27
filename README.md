@@ -13,5 +13,5 @@ Technologies Used
 How to Run
 1. Download or clone the repository
 2. Open `index.html` in a browser
-Author
+-
 Gayathri Deshaveni
